@@ -26,7 +26,7 @@ function edd_render_locale_data() {
 
 	$locales = $data->translation_sets;
 
-	$output .= '<table>' . "\n";
+	$output .= '<table class="standard-table">' . "\n";
 	$output .= '<thead>' . "\n";
 	$output .= '<tr>' . "\n";
 
