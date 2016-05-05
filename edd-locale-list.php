@@ -8,7 +8,7 @@
 
 function edd_get_locale_data() {
 
-	$url = 'https://translate.wordpress.org/api/projects/wp-plugins/easy-digital-downloads/dev';
+	$url = 'https://translate.wordpress.org/api/projects/wp-plugins/easy-digital-downloads/stable';
 
 	$response = wp_remote_get( $url );
 
@@ -25,6 +25,10 @@ function edd_render_locale_data() {
 	$data = json_decode( $json );
 
 	$locales = $data->translation_sets;
+
+print '<pre>';
+print_r( $locales );
+print '</pre>';
 
 	$output .= '<table class="standard-table">' . "\n";
 	$output .= '<thead>' . "\n";
@@ -66,7 +70,7 @@ function edd_render_locale_data() {
 
 		$output .= '<td>' . esc_html( $locale->name ) . '</td>' . "\n";
 		$output .= '<td>' . absint( $locale->percent_translated ) . '%</td>' . "\n";
-		$output .= '<td><a href="https://translate.wordpress.org/locale/' . esc_attr( $locale->locale ) . '/default/wp-plugins/easy-digital-downloads">Translate</a></td>' . "\n";
+		$output .= '<td><a href="https://translate.wordpress.org/locale/' . esc_attr( $locale->locale ) . '/' . esc_attr( $locale->slug ) . '/wp-plugins/easy-digital-downloads">Translate</a></td>' . "\n";
 
 		$output .= '</tr>' . "\n";
 
